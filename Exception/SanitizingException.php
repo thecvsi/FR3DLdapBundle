@@ -15,6 +15,6 @@ class SanitizingException extends \Exception
 
     public function __toString()
     {
-        return str_replace($this->secret, '****', $this->actualException->__toString());
+        return str_replace([$this->secret, substr($this->secret,0,15).'...'], '****', $this->actualException->__toString());
     }
 }
